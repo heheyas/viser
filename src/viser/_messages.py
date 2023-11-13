@@ -59,6 +59,7 @@ class ScenePointerMessage(Message):
 
     # Later we can add `double_click`, `move`, `down`, `up`, etc.
     event_type: Literal["click"]
+    click_pos: Tuple[float, float]
     ray_origin: Tuple[float, float, float]
     ray_direction: Tuple[float, float, float]
 

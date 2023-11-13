@@ -234,6 +234,10 @@ function ViewerCanvas({ children }: { children: React.ReactNode }) {
         sendClickThrottled({
           type: "ScenePointerMessage",
           event_type: "click",
+          click_pos: [
+            e.nativeEvent.offsetX / viewer.canvasRef.current!.clientWidth,
+            e.nativeEvent.offsetY / viewer.canvasRef.current!.clientHeight,
+          ],
           ray_origin: [
             raycaster.ray.origin.x,
             -raycaster.ray.origin.z,

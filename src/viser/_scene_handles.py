@@ -39,6 +39,7 @@ class ScenePointerEvent:
     client_id: int
     """ID of client that triggered this event."""
     event: Literal["click"]
+    click_pos: Tuple[float, float]
     """Type of event that was triggered. Currently we only support clicks."""
     ray_origin: Tuple[float, float, float]
     """Origin of 3D ray corresponding to this click, in world coordinates."""

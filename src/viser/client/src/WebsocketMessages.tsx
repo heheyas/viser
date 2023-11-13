@@ -24,6 +24,7 @@ export interface ViewerCameraMessage {
 export interface ScenePointerMessage {
   type: "ScenePointerMessage";
   event_type: "click";
+  click_pos: [number, number];
   ray_origin: [number, number, number];
   ray_direction: [number, number, number];
 }

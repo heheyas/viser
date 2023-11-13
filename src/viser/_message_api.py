@@ -754,6 +754,7 @@ class MessageApi(abc.ABC):
                 client=self._get_client_handle(client_id),
                 client_id=client_id,
                 event=message.event_type,
+                click_pos=message.click_pos,
                 ray_origin=message.ray_origin,
                 ray_direction=message.ray_direction,
             )
