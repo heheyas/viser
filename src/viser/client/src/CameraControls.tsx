@@ -159,15 +159,6 @@ export function SynchronizedCameraControls() {
     const upKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_UP, 20);
     const downKey = new holdEvent.KeyboardKeyHold(KEYCODE.ARROW_DOWN, 20);
     leftKey.addEventListener("holding", (event) => {
-      const original_target: THREE.Vector3 = new THREE.Vector3();
-      const current_position = new THREE.Vector3();
-      cameraControls.getTarget(original_target);
-      cameraControls.getPosition(current_position);
-      let lookat = new THREE.Vector3();
-      lookat = original_target.clone().add(current_position.clone().negate())
-      lookat.divideScalar(lookat.length())
-      const this_target = current_position.clone().add(lookat.clone().multiplyScalar(1));
-      cameraControls.setOrbitPoint(this_target.x, this_target.y, this_target.z);
       cameraControls.rotate(
         -0.05 * THREE.MathUtils.DEG2RAD * event?.deltaTime,
         0,
@@ -175,24 +166,11 @@ export function SynchronizedCameraControls() {
       );
     });
     rightKey.addEventListener("holding", (event) => {
-      const original_target: THREE.Vector3 = new THREE.Vector3();
-      const current_position = new THREE.Vector3();
-      cameraControls.getTarget(original_target);
-      cameraControls.getPosition(current_position);
-      let lookat = new THREE.Vector3();
-      lookat = original_target.clone().add(current_position.clone().negate())
-      lookat.divideScalar(lookat.length())
-      const this_target = current_position.clone().add(lookat.clone().multiplyScalar(1));
-      cameraControls.setOrbitPoint(this_target.x, this_target.y, this_target.z);
-
-      // console.log("original_target", original_target);
-      // console.log("current_position", current_position);
       cameraControls.rotate(
         0.05 * THREE.MathUtils.DEG2RAD * event?.deltaTime,
         0,
         true,
       );
-      // cameraControls.setOrbitPoint(original_target.x, original_target.y, original_target.z);
     });
     upKey.addEventListener("holding", (event) => {
       cameraControls.rotate(
